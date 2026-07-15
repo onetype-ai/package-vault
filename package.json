@@ -1,0 +1,20 @@
+{
+    "name": "@onetype/vault",
+    "version": "0.1.0",
+    "description": "Encrypted secrets for the instance. Packages declare the keys they need, admins fill them in through the UI, packages read them at runtime.",
+    "type": "module",
+    "license": "MIT",
+    "author": "Dejan Tomic <hi@iamdejan.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onetype-ai/package-vault.git"
+    },
+    "imports": {
+        "#vault/*": "./shared/addons/*",
+        "#vault-back/*": "./back/addons/*"
+    },
+    "peerDependencies": {
+        "@onetype/framework": ">=2.0.0",
+        "@onetype/platform": ">=0.1.0"
+    }
+}
