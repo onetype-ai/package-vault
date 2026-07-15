@@ -1,5 +1,3 @@
-import onetype from '@onetype/framework';
-
 const vault = onetype.Addon('vault', (addon) =>
 {
 	addon.Field('key', {
@@ -32,10 +30,6 @@ const vault = onetype.Addon('vault', (addon) =>
 	addon.Field('secret', {
 		type: 'boolean',
 		value: false,
-		description: 'When true the value is a password: never sent back to the front, shown as set or empty.'
+		description: 'When true the value is a password: never sent back to the front.'
 	});
 });
-
-import './schema.js';
-
-export default vault;

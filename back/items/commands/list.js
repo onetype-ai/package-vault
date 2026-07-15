@@ -1,6 +1,6 @@
 import onetype from '@onetype/framework';
 import commands from '@onetype/framework/commands';
-import secrets from '#vault-back/secrets/addon.js';
+import vault from '#vault/addon.js';
 
 commands.Item({
 	id: 'vault:list',
@@ -20,21 +20,15 @@ commands.Item({
 	out: {
 		keys: {
 			type: 'array',
-			each: {
-				type: 'object',
-				config: 'vault.key'
-			},
+			each: { type: 'object', config: 'vault.key' },
 			description: 'The declared keys with their filled status.'
 		}
 	},
-	callback: async function(properties, resolve)
+	callback: function(properties, resolve)
 	{
-		const vault = onetype.AddonGet('vault');
-		const filled = await secrets.Fn('filled');
-
 		const keys = Object.values(vault.Items()).map((item) =>
 		{
-			return { ...item.Get(['key', 'name', 'description', 'provider', 'group', 'secret']), filled: filled.includes(item.Get('key')) };
+			return { ...item.Get(['key', 'name', 'description', 'provider', 'group', 'secret']), filled: !!item.Get('value') };
 		});
 
 		resolve({ keys });

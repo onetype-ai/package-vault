@@ -1,6 +1,6 @@
 import onetype from '@onetype/framework';
 import commands from '@onetype/framework/commands';
-import secrets from '#vault-back/secrets/addon.js';
+import vault from '#vault/addon.js';
 
 commands.Item({
 	id: 'vault:set',
@@ -17,33 +17,20 @@ commands.Item({
 		}
 	},
 	in: {
-		key: {
-			type: 'string',
-			required: true,
-			description: 'Key to store the value under.'
-		},
-		value: {
-			type: 'string',
-			required: true,
-			description: 'Value to encrypt and store.'
-		}
+		key: { type: 'string', required: true, description: 'Key to store the value under.' },
+		value: { type: 'string', required: true, description: 'Value to encrypt and store.' }
 	},
 	out: {
-		key: {
-			type: 'string',
-			description: 'Key that was stored.'
-		}
+		key: { type: 'string', description: 'Key that was stored.' }
 	},
 	callback: async function(properties, resolve)
 	{
-		const vault = onetype.AddonGet('vault');
+		const item = await vault.Fn('set', properties.key, properties.value);
 
-		if(!Object.values(vault.Items()).some((item) => item.Get('key') === properties.key))
+		if(!item)
 		{
 			return resolve(null, 'Key ' + properties.key + ' is not declared.', 404);
 		}
-
-		await secrets.Fn('set', properties.key, properties.value);
 
 		resolve({ key: properties.key }, 'Saved.');
 	}

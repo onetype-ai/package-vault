@@ -10,8 +10,7 @@
         "url": "https://github.com/onetype-ai/package-vault.git"
     },
     "imports": {
-        "#vault/*": "./shared/addons/*",
-        "#vault-back/*": "./back/addons/*"
+        "#vault/*": "./back/*"
     },
     "peerDependencies": {
         "@onetype/framework": ">=2.0.0",

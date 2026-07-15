@@ -1,17 +1,21 @@
-/* Secrets */
-import './addons/secrets/addon.js';
-import secrets from '#vault-back/secrets/addon.js';
-import './addons/secrets/functions/get.js';
-import './addons/secrets/functions/set.js';
-import './addons/secrets/functions/filled.js';
+import onetype from '@onetype/framework';
+import vault from '#vault/addon.js';
+
+/* Functions */
+import './functions/get.js';
+import './functions/set.js';
+import './functions/filled.js';
 
 /* Commands */
 import './items/commands/list.js';
 import './items/commands/set.js';
 
-/* Back facade for other packages: $ot.vault.get(key) */
-import onetype from '@onetype/framework';
+/* Listeners */
+import './listeners/boot.js';
 
+/* Back facade */
 onetype.$ot.vault = {
-	get: (key) => secrets.Fn('get', key)
+	get: (key) => vault.Fn('get', key)
 };
+
+export default vault;
