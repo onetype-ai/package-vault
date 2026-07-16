@@ -3,9 +3,18 @@ import vault from '#vault/addon.js';
 
 commands.Item({
 	id: 'vault:get',
-	exposed: false,
-	description: 'Returns the decrypted value of a declared vault key, falling back to the environment. Back only, never reachable over the HTTP API.',
+	exposed: true,
+	method: 'GET',
+	endpoint: '/api/vault/get',
+	description: 'Returns the decrypted value of a declared vault key, falling back to the environment.',
 	metadata: { addon: 'vault' },
+	condition: function()
+	{
+		if(this.http && !this.http.state.user)
+		{
+			return 'Sign in to manage the vault.';
+		}
+	},
 	in: {
 		key: {
 			type: 'string',

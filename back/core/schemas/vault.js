@@ -21,6 +21,10 @@ onetype.DataSchema('vault', {
 		type: 'boolean',
 		description: 'Whether the value is a password.'
 	},
+	value: {
+		type: 'string',
+		description: 'The plain value when the key is not a secret, null otherwise.'
+	},
 	filled: {
 		type: 'boolean',
 		description: 'Whether the instance has a value stored for this key.'

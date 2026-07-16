@@ -8,7 +8,7 @@ import '#vault/core/schemas/vault.js';
 /* Functions */
 import '#vault/functions/get.js';
 import '#vault/functions/set.js';
-import '#vault/functions/filled.js';
+import '#vault/functions/list.js';
 
 /* Commands */
 import '#vault/items/commands/crud/list.js';

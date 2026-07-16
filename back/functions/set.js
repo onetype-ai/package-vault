@@ -15,8 +15,6 @@ vault.Fn('set', async function(key, value)
 
 	if(item.Get('id') && await this.Find().filter('id', item.Get('id')).one())
 	{
-		item.Set('updated_at', new Date().toISOString());
-
 		await item.Update();
 	}
 	else
