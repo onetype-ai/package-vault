@@ -2,19 +2,19 @@ import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
 /* Schemas */
-import './core/schemas/vault.js';
+import '#vault/core/schemas/vault.js';
 
 /* Functions */
-import './functions/get.js';
-import './functions/set.js';
-import './functions/filled.js';
+import '#vault/functions/get.js';
+import '#vault/functions/set.js';
+import '#vault/functions/filled.js';
 
 /* Commands */
-import './items/commands/list.js';
-import './items/commands/set.js';
+import '#vault/items/commands/list.js';
+import '#vault/items/commands/set.js';
 
 /* Listeners */
-import './listeners/boot.js';
+import '#vault/listeners/boot.js';
 
 /* Back facade */
 onetype.$ot.vault = {
