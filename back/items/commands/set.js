@@ -11,7 +11,7 @@ commands.Item({
 	metadata: { addon: 'vault' },
 	condition: function()
 	{
-		if(!this.http.state.user)
+		if(this.http && !this.http.state.user)
 		{
 			return 'Sign in to manage the vault.';
 		}
