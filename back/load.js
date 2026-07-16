@@ -1,5 +1,4 @@
 import onetype from '@onetype/framework';
-import commands from '@onetype/framework/commands';
 import vault from '#vault/addon.js';
 
 /* Schemas */
@@ -19,19 +18,27 @@ import '#vault/items/commands/set.js';
 import '#vault/listeners/boot.js';
 
 /* Back facade */
-onetype.$ot.vault = {
-	get: (key) => vault.Fn('get', key),
+const run = async (id, properties) =>
+{
+	const result = await $ot.command(id, properties, { system: true });
+
+	if(result.code !== 200)
+	{
+		throw onetype.Error(result.code, result.message);
+	}
+
+	return result.data;
+};
+
+$ot.vault = {
+	get: async (key) => (await run('vault:get', { key })).value,
 	set: async (key, value) =>
 	{
-		const result = await commands.Fn('run', 'vault:set', { key, value });
-
-		if(result.code !== 200)
-		{
-			throw onetype.Error(result.code, result.message);
-		}
+		await run('vault:set', { key, value });
 
 		return true;
-	}
+	},
+	list: () => run('vault:list', {}).then((data) => data.keys)
 };
 
 export default vault;
