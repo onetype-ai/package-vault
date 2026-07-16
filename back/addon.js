@@ -22,33 +22,23 @@ const vault = onetype.Addon('vault', (addon) =>
 
 	addon.Field('name', {
 		type: 'string',
-		metadata: { column: false },
-		description: 'Human readable name shown in the vault UI. Declaration only, not stored.'
+		description: 'Human readable name shown in the vault UI.'
 	});
 
 	addon.Field('description', {
 		type: 'string',
-		metadata: { column: false },
-		description: 'Hint about where to find the value. Declaration only, not stored.'
-	});
-
-	addon.Field('provider', {
-		type: 'string',
-		metadata: { column: false },
-		description: 'Slug the key groups under in the UI. Declaration only, not stored.'
+		description: 'Hint about where to find the value.'
 	});
 
 	addon.Field('group', {
 		type: 'string',
-		metadata: { column: false },
-		description: 'Label the key groups under when there is no provider. Declaration only, not stored.'
+		description: 'Label the key groups under in the UI.'
 	});
 
 	addon.Field('secret', {
 		type: 'boolean',
 		value: false,
-		metadata: { column: false },
-		description: 'When true the value is a password. Declaration only, not stored.'
+		description: 'When true the value is a password.'
 	});
 
 	addon.Field('updated_at', {
@@ -73,8 +63,7 @@ onetype.DataSchema('vault.key', {
 	key: { type: 'string', description: 'Env style key the value is stored under.' },
 	name: { type: 'string', description: 'Human readable name shown in the vault UI.' },
 	description: { type: 'string', description: 'Hint about where to find the value.' },
-	provider: { type: 'string', description: 'Slug the key groups under in the UI.' },
-	group: { type: 'string', description: 'Label the key groups under when there is no provider.' },
+	group: { type: 'string', description: 'Label the key groups under in the UI.' },
 	secret: { type: 'boolean', description: 'Whether the value is a password.' },
 	filled: { type: 'boolean', description: 'Whether the instance has a value stored for this key.' }
 });

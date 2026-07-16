@@ -28,7 +28,7 @@ commands.Item({
 	{
 		const keys = Object.values(vault.Items()).map((item) =>
 		{
-			return { ...item.Get(['key', 'name', 'description', 'provider', 'group', 'secret']), filled: !!item.Get('value') };
+			return { ...item.Get(['key', 'name', 'description', 'group', 'secret']), filled: !!item.Get('value') };
 		});
 
 		resolve({ keys });

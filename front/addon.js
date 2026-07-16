@@ -17,14 +17,9 @@ const vault = onetype.Addon('vault', (addon) =>
 		description: 'Hint about where to find the value.'
 	});
 
-	addon.Field('provider', {
-		type: 'string',
-		description: 'Slug the key groups under in the UI, like slack or github.'
-	});
-
 	addon.Field('group', {
 		type: 'string',
-		description: 'Label the key groups under when there is no provider.'
+		description: 'Label the key groups under in the UI.'
 	});
 
 	addon.Field('secret', {

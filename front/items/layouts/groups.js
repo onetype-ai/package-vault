@@ -15,7 +15,7 @@ onetype.AddonReady('ui.layouts', (layouts) =>
 
 				for(const item of Object.values(vault.Items()))
 				{
-					const label = item.Get('provider') ? item.Get('provider') : (item.Get('group') ? item.Get('group') : 'General');
+					const label = item.Get('group') ? item.Get('group') : 'General';
 
 					if(!groups[label])
 					{

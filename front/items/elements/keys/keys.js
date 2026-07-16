@@ -2,7 +2,7 @@ elements.ItemAdd({
 	id: 'vault-keys',
 	icon: 'lock',
 	name: 'Vault Keys',
-	description: 'Secrets for one provider group. Each declared key gets a field, secrets are masked, saving a value encrypts it on the instance.',
+	description: 'Secrets for one group. Each declared key gets a field, secrets are masked, saving a value encrypts it on the instance.',
 	category: 'Vault',
 	collection: 'Home',
 	author: 'OneType',
@@ -10,7 +10,7 @@ elements.ItemAdd({
 	config: {
 		group: {
 			type: 'string',
-			description: 'Provider group whose keys are shown.'
+			description: 'Group whose keys are shown.'
 		}
 	},
 	render: function()
@@ -26,7 +26,7 @@ elements.ItemAdd({
 
 			this.keys = all.filter((key) =>
 			{
-				const label = key.provider ? key.provider : (key.group ? key.group : 'General');
+				const label = key.group ? key.group : 'General';
 
 				return label === this.group;
 			});
