@@ -2,12 +2,16 @@ elements.ItemAdd({
 	id: 'vault-keys',
 	icon: 'lock',
 	name: 'Vault Keys',
-	description: 'Secrets for one group. Each declared key gets a field, secrets are masked, saving a value encrypts it on the instance.',
+	description: 'Secrets for one group of a category. Each declared key gets a field, secrets are masked, saving a value encrypts it on the instance.',
 	category: 'Vault',
 	collection: 'Home',
 	author: 'OneType',
 	metadata: { addon: 'vault' },
 	config: {
+		category: {
+			type: 'string',
+			description: 'Category id the group belongs to.'
+		},
 		group: {
 			type: 'string',
 			description: 'Group whose keys are shown.'
@@ -22,18 +26,13 @@ elements.ItemAdd({
 
 		this.load = async () =>
 		{
-			const all = await $ot.vault.list();
+			await $ot.vault.list();
 
-			this.keys = all.filter((key) =>
-			{
-				const label = key.group ? key.group : 'General';
-
-				return label === this.group;
-			});
+			this.keys = vault.Fn('keys', this.category, this.group);
 
 			for(const key of this.keys)
 			{
-				this.values[key.key] = '';
+				this.values[key.key] = key.value ? key.value : '';
 			}
 
 			this.loading = false;
@@ -64,9 +63,7 @@ elements.ItemAdd({
 
 			if(result.code === 200)
 			{
-				this.values[item.key] = '';
 				$ot.float.toast({ title: 'Vault', message: item.name + ' saved.' });
-				onetype.Emit('vault.saved', { key: item.key });
 				await this.load();
 			}
 			else
@@ -79,8 +76,9 @@ elements.ItemAdd({
 
 		this.Compute(() =>
 		{
-			if(this.group)
+			if(this.category && this.group)
 			{
+				this.meta = vault.Fn('category', this.category);
 				this.load();
 			}
 		});
@@ -88,16 +86,16 @@ elements.ItemAdd({
 		return `
 			<div class="box">
 				<e-status-empty
-					ot-if="!group"
+					ot-if="!category || !group"
 					icon="lock"
 					title="Vault"
 					description="Pick a group on the left to fill in its credentials. Every value is encrypted before it is stored."
 				></e-status-empty>
 
-				<div ot-if="group" class="panel">
+				<div ot-if="category && group" class="panel">
 					<div class="head">
 						<h1>{{ group }}</h1>
-						<p>Credentials for {{ group }}. Encrypted before storage.</p>
+						<p>{{ meta.description ? meta.description : 'Credentials for ' + meta.name + '. Encrypted before storage.' }}</p>
 					</div>
 
 					<div ot-if="loading" class="loading"><i class="spin">progress_activity</i></div>

@@ -30,9 +30,14 @@ const vault = onetype.Addon('vault', (addon) =>
 		description: 'Hint about where to find the value.'
 	});
 
+	addon.Field('category', {
+		type: 'string',
+		description: 'Category id the key belongs to in the UI, like connect.'
+	});
+
 	addon.Field('group', {
 		type: 'string',
-		description: 'Label the key groups under in the UI.'
+		description: 'Label the key groups under inside its category.'
 	});
 
 	addon.Field('secret', {

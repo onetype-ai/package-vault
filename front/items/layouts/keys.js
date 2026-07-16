@@ -8,7 +8,7 @@ onetype.AddonReady('ui.layouts', (layouts) =>
 		slot: 'center',
 		render: function()
 		{
-			return `<e-vault-keys :group="vaultGroup"></e-vault-keys>`;
+			return `<e-vault-keys :category="vaultCategory" :group="vaultGroup"></e-vault-keys>`;
 		}
 	});
 });

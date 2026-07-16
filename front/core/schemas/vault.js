@@ -1,5 +1,3 @@
-import onetype from '@onetype/framework';
-
 onetype.DataSchema('vault', {
 	key: {
 		type: 'string',

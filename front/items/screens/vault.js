@@ -9,12 +9,12 @@ onetype.AddonReady('ui.screens', (screens) =>
 
 	screens.Item({
 		id: 'vault.group',
-		route: '/vault/:group',
+		route: '/vault/:category/:group',
 		app: 'vault',
 		metadata: { addon: 'vault' },
 		data: function()
 		{
-			return { vaultGroup: this.group };
+			return { vaultCategory: this.category, vaultGroup: this.group };
 		}
 	});
 });
