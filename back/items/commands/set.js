@@ -17,11 +17,22 @@ commands.Item({
 		}
 	},
 	in: {
-		key: { type: 'string', required: true, description: 'Key to store the value under.' },
-		value: { type: 'string', required: true, description: 'Value to encrypt and store.' }
+		key: {
+			type: 'string',
+			required: true,
+			description: 'Key to store the value under.'
+		},
+		value: {
+			type: 'string',
+			required: true,
+			description: 'Value to encrypt and store.'
+		}
 	},
 	out: {
-		key: { type: 'string', description: 'Key that was stored.' }
+		key: {
+			type: 'string',
+			description: 'Key that was stored.'
+		}
 	},
 	callback: async function(properties, resolve)
 	{

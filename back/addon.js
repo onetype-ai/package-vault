@@ -5,8 +5,8 @@ const vault = onetype.Addon('vault', (addon) =>
 	addon.Table('vault');
 
 	addon.Field('id', {
-		type: 'number',
-		description: 'Unique row id.'
+		type: 'string',
+		description: 'Unique row id, a bigint the database returns as a string.'
 	});
 
 	addon.Field('key', {
