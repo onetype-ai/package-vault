@@ -29,7 +29,19 @@ commands.Item({
 			return resolve(null, message, code);
 		}
 
-		onetype.Emit('vault.saved', { key: properties.key });
+		const item = Object.values(vault.Items()).find((entry) => entry.Get('key') === properties.key);
+
+		if(item)
+		{
+			item.Set('filled', true);
+
+			if(!item.Get('secret'))
+			{
+				item.Set('value', properties.value);
+			}
+		}
+
+		onetype.Emit('vault.save', { key: properties.key });
 
 		resolve(data, message);
 	}

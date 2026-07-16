@@ -1,4 +1,6 @@
-vaultCategories.Item({
+import vault from '#vault/addon.js';
+
+vault.categories.Item({
 	id: 'general',
 	name: 'General',
 	description: 'Keys that do not belong to any category.',

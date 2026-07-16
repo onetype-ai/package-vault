@@ -1,6 +1,13 @@
 import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
+/* Addons */
+import '#vault/addons/categories/addon.js';
+import '#vault/addons/categories/core/schemas/category.js';
+import '#vault/addons/categories/functions/list.js';
+import '#vault/addons/categories/items/commands/crud/list.js';
+import '#vault/addons/categories/items/self/general.js';
+
 /* Schemas */
 import '#vault/core/schemas/vault.js';
 
