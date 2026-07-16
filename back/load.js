@@ -11,7 +11,7 @@ import '#vault/functions/set.js';
 import '#vault/functions/filled.js';
 
 /* Commands */
-import '#vault/items/commands/list.js';
+import '#vault/items/commands/crud/list.js';
 import '#vault/items/commands/get.js';
 import '#vault/items/commands/set.js';
 
