@@ -20,7 +20,7 @@ commands.Item({
 	out: {
 		keys: {
 			type: 'array',
-			each: { type: 'object', config: 'vault.key' },
+			each: { type: 'object', config: 'vault' },
 			description: 'The declared keys with their filled status.'
 		}
 	},

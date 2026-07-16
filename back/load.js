@@ -1,6 +1,9 @@
 import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
+/* Schemas */
+import './core/schemas/vault.js';
+
 /* Functions */
 import './functions/get.js';
 import './functions/set.js';
