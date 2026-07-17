@@ -1,7 +1,7 @@
 commands.Item({
-	id: 'vault:get',
+	id: 'vault:keys:get',
 	description: 'Reads the decrypted value of a declared vault key from the instance.',
-	metadata: { addon: 'vault' },
+	metadata: { addon: 'vault.keys' },
 	in: {
 		key: {
 			type: 'string',
@@ -17,13 +17,6 @@ commands.Item({
 	},
 	callback: async function(properties, resolve)
 	{
-		const { data, message, code } = await $ot.command('vault:get', properties, true);
-
-		if(code !== 200)
-		{
-			return resolve(null, message, code);
-		}
-
-		resolve(data);
+		resolve({ value: await vault.keys.Fn('get', properties.key) });
 	}
 });
