@@ -10,7 +10,7 @@ elements.ItemAdd({
 	config: {
 		background: {
 			type: 'number',
-			value: 0,
+			value: 1,
 			options: [0, 1, 2, 3],
 			description: 'Background depth of the grid, 0 renders transparent.'
 		}
@@ -42,7 +42,7 @@ elements.ItemAdd({
 			}
 
 			const item = value.item;
-			const background = this.background + 1;
+			const background = Math.min(this.background + 1, 3);
 
 			$ot.float.popup(event.target.closest('.cell'), function()
 			{
