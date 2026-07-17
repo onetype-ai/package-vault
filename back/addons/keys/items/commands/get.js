@@ -28,7 +28,7 @@ commands.Item({
 			description: 'The decrypted value, null while nothing is stored.'
 		}
 	},
-	callback: function(properties, resolve)
+	callback: function(properties, resolve, direct)
 	{
 		const item = Object.values(vault.keys.Items()).find((entry) => entry.Get('key') === properties.key);
 
@@ -37,7 +37,7 @@ commands.Item({
 			return resolve(null, 'Key ' + properties.key + ' is not declared.', 404);
 		}
 
-		if(this.http && item.Get('secret'))
+		if(!direct && item.Get('secret'))
 		{
 			return resolve(null, 'Key ' + properties.key + ' is a secret, its value only reads on the back.', 403);
 		}
