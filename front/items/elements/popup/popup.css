@@ -1,0 +1,30 @@
+/* ===== VAULT POPUP ===== */
+
+.e-6dfa9e85
+{
+	display: block;
+}
+
+/* Box */
+
+.e-6dfa9e85 > .box
+{
+	display: flex;
+	align-items: center;
+	gap: var(--ot-spacing-s);
+	min-width: 320px;
+	padding: var(--ot-spacing-s);
+	border: 1px solid var(--line);
+	border-radius: var(--ot-radius-m);
+	background: var(--fill);
+}
+
+.e-6dfa9e85 > .box.bg-1 { --fill: var(--ot-bg-1); --line: var(--ot-bg-1-border); }
+.e-6dfa9e85 > .box.bg-2 { --fill: var(--ot-bg-2); --line: var(--ot-bg-2-border); }
+.e-6dfa9e85 > .box.bg-3 { --fill: var(--ot-bg-3); --line: var(--ot-bg-3-border); }
+
+.e-6dfa9e85 > .box > *:first-child
+{
+	flex: 1;
+	min-width: 0;
+}
