@@ -9,7 +9,7 @@ vault.keys.Fn('list', function()
 		return {
 			...item.Get(['key', 'name', 'description', 'category', 'group', 'secret']),
 			value: item.Get('secret') ? null : value,
-			filled: !!item.Get('value') || value !== null
+			filled: value !== null
 		};
 	});
 });

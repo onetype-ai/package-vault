@@ -6,7 +6,7 @@ commands.Item({
 	exposed: true,
 	method: 'GET',
 	endpoint: '/api/vault/keys/get',
-	description: 'Returns the decrypted value of a declared vault key, falling back to the environment.',
+	description: 'Returns the decrypted value of a declared vault key that is not a secret.',
 	metadata: { addon: 'vault.keys' },
 	condition: function()
 	{
