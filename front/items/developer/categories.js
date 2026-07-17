@@ -20,8 +20,7 @@ onetype.AddonReady('vault.categories', (categories) =>
 		name: 'Connect',
 		description: 'OAuth credentials for the connected providers.',
 		icon: 'link',
-		order: 2,
-		metadata: { addon: 'connect' }
+		order: 2
 	});
 });
 \`\`\`
