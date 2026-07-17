@@ -2,19 +2,14 @@ import commands from '@onetype/framework/commands';
 import vault from '#vault/addon.js';
 
 commands.Item({
-	id: 'vault:get',
+	id: 'vault:keys:get',
 	exposed: true,
 	method: 'GET',
-	endpoint: '/api/vault/get',
+	endpoint: '/api/vault/keys/get',
 	description: 'Returns the decrypted value of a declared vault key, falling back to the environment.',
-	metadata: { addon: 'vault' },
+	metadata: { addon: 'vault.keys' },
 	condition: function()
 	{
-		if(this.system)
-		{
-			return;
-		}
-
 		if(!this.http || !this.http.state.user)
 		{
 			return 'Sign in to manage the vault.';
@@ -35,13 +30,13 @@ commands.Item({
 	},
 	callback: function(properties, resolve)
 	{
-		const item = Object.values(vault.Items()).find((entry) => entry.Get('key') === properties.key);
+		const item = Object.values(vault.keys.Items()).find((entry) => entry.Get('key') === properties.key);
 
 		if(!item)
 		{
 			return resolve(null, 'Key ' + properties.key + ' is not declared.', 404);
 		}
 
-		resolve({ value: vault.Fn('get', properties.key) }, 'Value read.');
+		resolve({ value: vault.keys.Fn('get', properties.key) }, 'Value read.');
 	}
 });

@@ -10,11 +10,6 @@ commands.Item({
 	metadata: { addon: 'vault.categories' },
 	condition: function()
 	{
-		if(this.system)
-		{
-			return;
-		}
-
 		if(!this.http || !this.http.state.user)
 		{
 			return 'Sign in to manage the vault.';

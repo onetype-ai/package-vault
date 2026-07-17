@@ -1,21 +1,15 @@
-import onetype from '@onetype/framework';
 import commands from '@onetype/framework/commands';
 import vault from '#vault/addon.js';
 
 commands.Item({
-	id: 'vault:set',
+	id: 'vault:keys:set',
 	exposed: true,
 	method: 'POST',
-	endpoint: '/api/vault/set',
+	endpoint: '/api/vault/keys/set',
 	description: 'Stores an encrypted value for a declared vault key.',
-	metadata: { addon: 'vault' },
+	metadata: { addon: 'vault.keys' },
 	condition: function()
 	{
-		if(this.system)
-		{
-			return;
-		}
-
 		if(!this.http || !this.http.state.user)
 		{
 			return 'Sign in to manage the vault.';
@@ -41,7 +35,7 @@ commands.Item({
 	},
 	callback: async function(properties, resolve)
 	{
-		const item = await vault.Fn('set', properties.key, properties.value);
+		const item = await vault.keys.Fn('set', properties.key, properties.value);
 
 		if(!item)
 		{

@@ -1,7 +1,7 @@
 import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
-vault.Fn('set', async function(key, value)
+vault.keys.Fn('set', async function(key, value)
 {
 	const encrypted = onetype.Encrypt(value, process.env.VAULT_KEY);
 	const item = Object.values(this.Items()).find((entry) => entry.Get('key') === key);
@@ -20,7 +20,11 @@ vault.Fn('set', async function(key, value)
 	else
 	{
 		await item.Create();
+
+		await this.Fn('sync');
 	}
+
+	onetype.Emit('vault.keys.set', { key });
 
 	return item;
 });

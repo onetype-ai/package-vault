@@ -1,4 +1,3 @@
-import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
 /* Addons */
@@ -8,44 +7,27 @@ import '#vault/addons/categories/functions/list.js';
 import '#vault/addons/categories/items/commands/crud/list.js';
 import '#vault/addons/categories/items/self/general.js';
 
-/* Schemas */
-import '#vault/core/schemas/vault.js';
-
-/* Functions */
-import '#vault/functions/get.js';
-import '#vault/functions/set.js';
-import '#vault/functions/list.js';
-
-/* Commands */
-import '#vault/items/commands/crud/list.js';
-import '#vault/items/commands/get.js';
-import '#vault/items/commands/set.js';
-
-/* Listeners */
-import '#vault/listeners/boot.js';
+import '#vault/addons/keys/addon.js';
+import '#vault/addons/keys/core/schemas/key.js';
+import '#vault/addons/keys/core/emitters/set.js';
+import '#vault/addons/keys/core/emitters/clear.js';
+import '#vault/addons/keys/functions/get.js';
+import '#vault/addons/keys/functions/set.js';
+import '#vault/addons/keys/functions/list.js';
+import '#vault/addons/keys/functions/sync.js';
+import '#vault/addons/keys/functions/clear.js';
+import '#vault/addons/keys/items/commands/crud/list.js';
+import '#vault/addons/keys/items/commands/get.js';
+import '#vault/addons/keys/items/commands/set.js';
+import '#vault/addons/keys/items/commands/clear.js';
+import '#vault/addons/keys/listeners/boot.js';
 
 /* Back facade */
-const run = async (id, properties) =>
-{
-	const result = await $ot.command(id, properties, { system: true });
-
-	if(result.code !== 200)
-	{
-		throw onetype.Error(result.code, result.message);
-	}
-
-	return result.data;
-};
-
 $ot.vault = {
-	get: async (key) => (await run('vault:get', { key })).value,
-	set: async (key, value) =>
-	{
-		await run('vault:set', { key, value });
-
-		return true;
-	},
-	list: () => run('vault:list', {}).then((data) => data.keys)
+	get: (key) => vault.keys.Fn('get', key),
+	set: (key, value) => vault.keys.Fn('set', key, value),
+	clear: (key) => vault.keys.Fn('clear', key),
+	list: () => vault.keys.Fn('list')
 };
 
 export default vault;
