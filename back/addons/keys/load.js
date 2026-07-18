@@ -1,0 +1,22 @@
+import '#vault/addons/keys/addon.js';
+
+/* Core */
+import '#vault/addons/keys/core/schemas/key.js';
+import '#vault/addons/keys/core/emitters/set.js';
+import '#vault/addons/keys/core/emitters/clear.js';
+
+/* Functions */
+import '#vault/addons/keys/functions/get.js';
+import '#vault/addons/keys/functions/set.js';
+import '#vault/addons/keys/functions/list.js';
+import '#vault/addons/keys/functions/sync.js';
+import '#vault/addons/keys/functions/clear.js';
+
+/* Items */
+import '#vault/addons/keys/items/commands/crud/list.js';
+import '#vault/addons/keys/items/commands/get.js';
+import '#vault/addons/keys/items/commands/set.js';
+import '#vault/addons/keys/items/commands/clear.js';
+
+/* Listeners */
+import '#vault/addons/keys/listeners/boot.js';
