@@ -13,7 +13,7 @@ import '#vault/addons/keys/functions/sync.js';
 import '#vault/addons/keys/functions/clear.js';
 
 /* Items */
-import '#vault/addons/keys/items/commands/crud/list.js';
+import '#vault/addons/keys/items/commands/crud/many.js';
 import '#vault/addons/keys/items/commands/get.js';
 import '#vault/addons/keys/items/commands/set.js';
 import '#vault/addons/keys/items/commands/clear.js';

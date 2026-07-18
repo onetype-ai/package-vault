@@ -12,7 +12,7 @@ The vault stores credentials encrypted in the \`vault_keys\` table. Packages dec
 
 ## Declaring keys
 
-Keys are declared on the back only — the front reads them from the instance through \`vault:keys:list\`.
+Keys are declared on the back only — the front reads them from the instance through \`vault:keys:many\`.
 
 \`\`\`js
 onetype.AddonReady('vault.keys', (keys) =>

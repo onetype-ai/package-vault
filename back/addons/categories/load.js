@@ -7,5 +7,5 @@ import '#vault/addons/categories/core/schemas/category.js';
 import '#vault/addons/categories/functions/list.js';
 
 /* Items */
-import '#vault/addons/categories/items/commands/crud/list.js';
+import '#vault/addons/categories/items/commands/crud/many.js';
 import '#vault/addons/categories/items/self/general.js';

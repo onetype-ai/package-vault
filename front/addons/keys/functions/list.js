@@ -1,6 +1,6 @@
 vault.keys.Fn('list', async function()
 {
-	const { data, message, code } = await $ot.command('vault:keys:list', {}, true);
+	const { data, message, code } = await $ot.command('vault:keys:many', {}, true);
 
 	if(code !== 200)
 	{

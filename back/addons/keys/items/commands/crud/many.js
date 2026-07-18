@@ -2,10 +2,10 @@ import commands from '@onetype/framework/commands';
 import vault from '#vault/addon.js';
 
 commands.Item({
-	id: 'vault:keys:list',
+	id: 'vault:keys:many',
 	exposed: true,
 	method: 'GET',
-	endpoint: '/api/vault/keys/list',
+	endpoint: '/api/vault/keys',
 	description: 'Lists every declared vault key with its filled status and the plain value for keys that are not secrets.',
 	metadata: { addon: 'vault.keys' },
 	condition: function()

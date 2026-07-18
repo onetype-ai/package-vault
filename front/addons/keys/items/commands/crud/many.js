@@ -1,5 +1,5 @@
 commands.Item({
-	id: 'vault:keys:list',
+	id: 'vault:keys:many',
 	description: 'Reads the declared vault keys from the instance.',
 	metadata: { addon: 'vault.keys' },
 	out: {

@@ -73,11 +73,11 @@ await $ot.vault.get('%DB_HOSTNAME%'); // process.env.DB_HOSTNAME
 
 | Command | What it does |
 | --- | --- |
-| `vault:keys:list` | Lists every declared key with its filled status |
+| `vault:keys:many` | Lists every declared key with its filled status |
 | `vault:keys:get` | Reads the decrypted value of a key |
 | `vault:keys:set` | Encrypts and stores a value |
 | `vault:keys:clear` | Removes a stored value |
-| `vault:categories:list` | Lists declared categories sorted by order |
+| `vault:categories:many` | Lists declared categories sorted by order |
 
 ## Emitters
 

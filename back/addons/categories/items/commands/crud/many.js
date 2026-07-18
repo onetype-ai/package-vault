@@ -2,10 +2,10 @@ import commands from '@onetype/framework/commands';
 import vault from '#vault/addon.js';
 
 commands.Item({
-	id: 'vault:categories:list',
+	id: 'vault:categories:many',
 	exposed: true,
 	method: 'GET',
-	endpoint: '/api/vault/categories/list',
+	endpoint: '/api/vault/categories',
 	description: 'Lists every declared vault category, sorted by order.',
 	metadata: { addon: 'vault.categories' },
 	condition: function()
