@@ -19,7 +19,7 @@ onetype.AddonReady('vault', (vault) =>
 
 		addon.Field('value', {
 			type: 'string',
-			description: 'Encrypted value. Never leaves the back. Empty on declaration only items.'
+			description: 'Encrypted value once stored. Declarations may set a plain default that applies until a value is stored.'
 		});
 
 		addon.Field('name', {

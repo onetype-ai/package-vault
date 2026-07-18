@@ -14,7 +14,7 @@ vault.keys.Fn('get', function(key)
 
 	if(item && item.Get('value'))
 	{
-		return onetype.Decrypt(item.Get('value'), process.env.VAULT_KEY);
+		return item.Get('id') ? onetype.Decrypt(item.Get('value'), process.env.VAULT_KEY) : item.Get('value');
 	}
 
 	return null;
