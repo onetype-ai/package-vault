@@ -18,10 +18,10 @@ elements.ItemAdd({
 	render: function()
 	{
 		this.fields = [
-			{ key: 'name', label: 'Name', type: 'text', width: '1.5fr' },
-			{ key: 'key', label: 'Key', type: 'text', width: '1.5fr' },
-			{ key: 'status', label: 'Status', type: 'status', width: '140px' },
-			{ key: 'value', label: 'Value', type: 'text', width: '2fr' }
+			{ key: 'name', label: 'Name', type: 'title', sub: 'description', width: '2fr' },
+			{ key: 'key', label: 'Key', type: 'text', width: '1.3fr' },
+			{ key: 'status', label: 'Status', type: 'status', width: '120px' },
+			{ key: 'value', label: 'Value', type: 'text', width: '1.5fr' }
 		];
 
 		this.refresh = () =>
