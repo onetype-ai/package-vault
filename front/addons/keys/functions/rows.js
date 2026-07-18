@@ -8,6 +8,7 @@ vault.keys.Fn('rows', function()
 			id: item.Get('key'),
 			name: item.Get('name'),
 			key: item.Get('key'),
+			category: category ? category.Get('name') : 'General',
 			section: item.Get('group') ? item.Get('group') : (category ? category.Get('name') : 'General'),
 			filled: item.Get('filled'),
 			status: item.Get('filled') ? { label: 'Stored', color: 'green' } : { label: 'Empty', color: 'orange' },

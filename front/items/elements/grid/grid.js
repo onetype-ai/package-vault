@@ -56,7 +56,7 @@ elements.ItemAdd({
 		};
 
 		return /* html */ `
-			<e-views-grid :fields="fields" :items="rows" group="section" :background="background" :_select="edit" empty="No keys declared yet."></e-views-grid>
+			<e-views-grid :fields="fields" :items="rows" :group="['category', 'section']" :background="background" :_select="edit" empty="No keys declared yet."></e-views-grid>
 		`;
 	}
 });
