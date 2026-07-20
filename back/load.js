@@ -4,6 +4,10 @@ import vault from '#vault/addon.js';
 import '#vault/addons/categories/load.js';
 import '#vault/addons/keys/load.js';
 
+/* Items */
+import '#vault/items/tools/keys.js';
+import '#vault/items/agents/vault.js';
+
 /* Back facade */
 $ot.vault = {
 	get: (key) => vault.keys.Fn('get', key),
