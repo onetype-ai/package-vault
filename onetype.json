@@ -1,5 +1,4 @@
 {
-	"type": "package",
 	"slug": "onetype/vault",
 	"name": "Vault",
 	"version": "0.1.0",
@@ -7,7 +6,7 @@
 	"icon": "lock",
 	"color": "rgba(251, 191, 36, 1)",
 	"core": ">=0.1.0",
-	"status": "enabled",
+	"status": "disabled",
 	"depends": [],
 	"runtimes": [
 		"admin"
