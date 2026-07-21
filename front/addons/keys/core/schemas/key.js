@@ -1,4 +1,4 @@
-onetype.DataSchema('vault.key', {
+onetype.SchemasRegister('vault.key', {
 	key: {
 		type: 'string',
 		description: 'Env style key the value is stored under.'

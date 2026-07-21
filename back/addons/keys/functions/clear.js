@@ -1,4 +1,3 @@
-import onetype from '@onetype/framework';
 import vault from '#vault/addon.js';
 
 vault.keys.Fn('clear', async function(key)

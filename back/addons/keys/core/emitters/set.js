@@ -1,5 +1,3 @@
-import onetype from '@onetype/framework';
-
 onetype.EmitRegister('vault.keys.set', {
 	description: 'Fires after a vault value is stored.',
 	metadata: { addon: 'vault.keys' },

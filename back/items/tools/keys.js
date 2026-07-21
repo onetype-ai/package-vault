@@ -1,5 +1,3 @@
-import onetype from '@onetype/framework';
-
 /*
 	The vault commands as agent tools — one door for the UI and for
 	agents. Not global: they belong to the Vault agent. Secrets are

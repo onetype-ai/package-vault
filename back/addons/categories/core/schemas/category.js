@@ -1,6 +1,4 @@
-import onetype from '@onetype/framework';
-
-onetype.DataSchema('vault.category', {
+onetype.SchemasRegister('vault.category', {
 	id: {
 		type: 'string',
 		description: 'Unique category id, like connect.'
