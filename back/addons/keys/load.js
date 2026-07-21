@@ -1,9 +1,9 @@
 import '#vault/addons/keys/addon.js';
 
 /* Core */
-import '#vault/addons/keys/core/schemas/key.js';
-import '#vault/addons/keys/core/emitters/set.js';
-import '#vault/addons/keys/core/emitters/clear.js';
+import '#vault/addons/keys/_/schemas/key.js';
+import '#vault/addons/keys/_/emitters/set.js';
+import '#vault/addons/keys/_/emitters/clear.js';
 
 /* Functions */
 import '#vault/addons/keys/functions/get.js';
