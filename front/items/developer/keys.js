@@ -1,11 +1,11 @@
 onetype.AddonReady('developer.addons', (developer) =>
 {
-	developer.Item({
-		id: 'vault.keys',
-		group: 'vault',
-		name: 'Keys',
-		description: 'Encrypted instance secrets. Packages declare the keys they need, users fill them in through the vault UI.',
-		content: `
+    developer.Item({
+        id: 'vault.keys',
+        group: 'vault',
+        name: 'Keys',
+        description: 'Encrypted instance secrets. Packages declare the keys they need, users fill them in through the vault UI.',
+        content: `
 ## What it does
 
 The vault stores credentials encrypted in the \`vault_keys\` table. Packages declare the keys they need, the vault UI shows them grouped by category, and the values never leave the back unencrypted unless the key is not a secret.
@@ -17,13 +17,13 @@ Keys are declared on the back only — the front reads them from the instance th
 \`\`\`js
 onetype.AddonReady('vault.keys', (keys) =>
 {
-	keys.Item({
-		key: 'SLACK_CLIENT_ID',
-		name: 'Slack Client ID',
-		description: 'From your Slack app OAuth settings.',
-		category: 'connect',
-		group: 'Slack'
-	});
+    keys.Item({
+        key: 'SLACK_CLIENT_ID',
+        name: 'Slack Client ID',
+        description: 'From your Slack app OAuth settings.',
+        category: 'connect',
+        group: 'Slack'
+    });
 });
 \`\`\`
 
@@ -39,6 +39,6 @@ await $ot.vault.list();
 \`\`\`
 
 Wrap a key in percents to read it straight from the environment: \`$ot.vault.get('%SLACK_CLIENT_ID%')\` returns \`process.env.SLACK_CLIENT_ID\`.
-		`
-	});
+        `
+    });
 });

@@ -1,11 +1,9 @@
 {
 	"slug": "onetype/vault",
 	"name": "Vault",
-	"version": "0.1.0",
 	"description": "Encrypted secrets for the instance. Packages declare the keys they need, admins fill them in through the UI, packages read them at runtime.",
 	"icon": "lock",
 	"color": "rgba(251, 191, 36, 1)",
-	"core": ">=0.1.0",
 	"status": "disabled",
 	"depends": [
 		"onetype/elements",
@@ -16,6 +14,5 @@
 	],
 	"permissions": [],
 	"limits": {},
-	"features": {},
-	"config": {}
+	"features": {}
 }
