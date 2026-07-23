@@ -1,4 +1,4 @@
-onetype.MiddlewareIntercept('boot', async (middleware) =>
+onetype.middlewares.intercept('boot', async (middleware) =>
 {
     const keys = await $ot.command('vault:keys:many', {}, true);
 

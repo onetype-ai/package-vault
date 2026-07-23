@@ -2,7 +2,7 @@ import vault from '#vault/addon.js';
 
 vault.keys.Fn('set', async function(key, value)
 {
-    const encrypted = onetype.Encrypt(value, process.env.VAULT_KEY);
+    const encrypted = onetype.crypto.encrypt(value, process.env.VAULT_KEY);
     const item = Object.values(this.Items()).find((entry) => entry.Get('key') === key);
 
     if(!item)
@@ -23,7 +23,7 @@ vault.keys.Fn('set', async function(key, value)
         await this.Fn('sync');
     }
 
-    onetype.Emit('vault.keys.set', { key });
+    onetype.emitters.fire('vault.keys.set', { key });
 
     return item;
 });

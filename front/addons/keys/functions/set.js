@@ -19,7 +19,7 @@ vault.keys.Fn('set', async function(key, value)
         }
     }
 
-    onetype.Emit('vault.keys.set', { key });
+    onetype.emitters.fire('vault.keys.set', { key });
 
     return data;
 });

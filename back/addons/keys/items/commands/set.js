@@ -1,4 +1,4 @@
-import commands from '@onetype/framework/commands';
+import commands from 'addon-commands';
 import vault from '#vault/addon.js';
 
 commands.Item({

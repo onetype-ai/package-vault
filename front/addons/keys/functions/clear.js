@@ -15,7 +15,7 @@ vault.keys.Fn('clear', async function(key)
         item.Set('value', null);
     }
 
-    onetype.Emit('vault.keys.clear', { key });
+    onetype.emitters.fire('vault.keys.clear', { key });
 
     return data;
 });

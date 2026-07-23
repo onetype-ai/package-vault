@@ -71,16 +71,16 @@ elements.ItemAdd({
 
         return /* html */ `
             <div :class="'box bg-' + background">
-                <e-form-input
+                <e-admin-form-input
                     :type="secret ? 'password' : 'text'"
                     :background="Math.min(background + 1, 3)"
                     placeholder="Enter value"
                     :clearable="false"
                     :reveal="false"
                     :_input="change"
-                ></e-form-input>
-                <e-form-button icon="save" text="Save" :disabled="!draft" :_click="() => save()"></e-form-button>
-                <e-form-button ot-if="filled" icon="delete" text="" color="red" :_click="() => clear()"></e-form-button>
+                ></e-admin-form-input>
+                <e-admin-form-button icon="save" text="Save" :disabled="!draft" :_click="() => save()"></e-admin-form-button>
+                <e-admin-form-button ot-if="filled" icon="delete" text="" color="red" :_click="() => clear()"></e-admin-form-button>
             </div>
         `;
     }

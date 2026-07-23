@@ -1,5 +1,6 @@
-onetype.EmitRegister('vault.keys.set', {
-    description: 'Fires after a vault value is stored on the instance.',
+onetype.emitters.ItemAdd({
+    id: 'vault.keys.set',
+    description: 'Fires after a vault value is stored.',
     metadata: { addon: 'vault.keys' },
     config: {
         key: {

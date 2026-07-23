@@ -1,6 +1,6 @@
 import vault from '#vault/addon.js';
 
-onetype.MiddlewareIntercept('boot', async (middleware) =>
+onetype.middlewares.intercept('boot', async (middleware) =>
 {
     await vault.keys.Fn('sync');
 

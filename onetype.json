@@ -6,7 +6,6 @@
 	"color": "rgba(251, 191, 36, 1)",
 	"status": "disabled",
 	"depends": [
-		"onetype/elements",
 		"onetype/admin"
 	],
 	"runtimes": [
